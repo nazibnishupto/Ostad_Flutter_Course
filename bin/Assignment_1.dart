@@ -6,7 +6,7 @@ abstract class Role {
   void displayRole();
 }
 
-// B. Create a class Person
+// B. Create a  class Person
 
 class Person implements Role {
   late String name;

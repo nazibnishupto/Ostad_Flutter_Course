@@ -10,12 +10,22 @@ triangle(){
   print("Enter the base of triangle: ");
   double ? base = double.tryParse(stdin.readLineSync()!);
 
+  if (base == null) {
+    print('Invalid input for base. Please enter a valid number.');
+    return;
+  }
+
   print("Enter the height of triangle: ");
   double ? height = double.tryParse(stdin.readLineSync()!);
 
+  if (height == null) {
+    print('Invalid input for height. Please enter a valid number.');
+    return;
+  }
 
-  double area = 0.5 * base! * height!;
+  double area = 0.5 * base * height;
   
   print("Area of the triangle: $area");
+
 
 }

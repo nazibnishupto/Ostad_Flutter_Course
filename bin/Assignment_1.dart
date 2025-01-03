@@ -51,10 +51,12 @@ class Student extends Person{
     }
     double average = sum / courseScores.length;
 
-    return average;
+    String roundedString = average.toStringAsFixed(1);
+    double roundedAverage = double.parse(roundedString);
+
+    return roundedAverage;
 
   }
-
 }
 
 // D. Create another class Teacher that extends Person
@@ -79,19 +81,13 @@ class Teacher extends Person{
     for(String course in courseTaught){
       print("- $course");
     }
-
   }
-
 }
 
 // E. Create a class StudentManagementSystem
 
 class StudentManagementSystem{
-  display() {
-    Student student = Student("John Doe", 20, "123 Main St", "s1507076", "A", [90, 85, 82]);
-
-    Teacher teacher = Teacher("Mrs. Smith", 35, "456 Oak St", "t_s12", ["Math", "English", "Bangla"]);
-
+  display(Student student, Teacher teacher) {
     print("Student Information:");
     student.displayRole();
     print("Name: ${student.getName}");
@@ -99,7 +95,7 @@ class StudentManagementSystem{
     print("Address: ${student.getAddress}");
     print("Average Score: ${student.calculateAverageScore()}");
 
-    print("\n\n");
+    print("\n");
 
     print("Teacher Information:");
     teacher.displayRole();
@@ -112,6 +108,12 @@ class StudentManagementSystem{
 
 
 void main(){
+
+  Student student = Student("John Doe", 20, "123 Main St", "s1507076", "A", [90, 85, 82]);
+
+  Teacher teacher = Teacher("Mrs. Smith", 35, "456 Oak St", "t_s12", ["Math", "English", "Bangla"]);
+
   StudentManagementSystem sys = StudentManagementSystem();
-  sys.display();
+  sys.display(student, teacher);
+
 }
